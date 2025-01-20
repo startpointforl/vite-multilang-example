@@ -1,0 +1,12 @@
+{
+  "en": {
+    "block": {
+      "fetch-error": "Couldn't load"
+    }
+  },
+  "ru": {
+    "block": {
+      "fetch-error": "Не удалось загрузить"
+    }
+  }
+}
