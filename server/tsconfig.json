@@ -1,0 +1,8 @@
+{
+  "extends": "../tsconfig",
+  "compilerOptions": {
+    "outDir": "../dist/server",
+    "target": "es2018",
+    "strict": false
+  }
+}

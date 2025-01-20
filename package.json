@@ -4,18 +4,23 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "cd client && VITE_LANG=ru vite",
-    "build": "tsc --project client && VITE_LANG=ru vite build",
-    "build:prod": "npm run i18n && npm run build",
+    "build:client": "tsc --project client && VITE_LANG=ru vite build",
+    "build:server": "tsc --project server",
+    "build:prod": "npm run i18n && npm run build:client && npm run build:server",
+    "start:prod": "node index.js",
     "lint": "eslint .",
     "preview": "vite preview",
     "i18n": "node scripts/i18n.js"
   },
   "dependencies": {
+    "express": "^4.21.2",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "tslib": "^2.8.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
+    "@types/express": "^5.0.0",
     "@types/node": "^22.10.7",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",

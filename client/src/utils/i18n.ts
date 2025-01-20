@@ -11,8 +11,12 @@ const modules = import.meta.glob("../../../dist/i18n.*.json", {
   eager: true,
 });
 
+const el = document.querySelector('meta[name="render-params"]');
+const data = JSON.parse(el?.getAttribute("content") || "{}");
+
 const translations = modules[
-  `../../../dist/i18n.${import.meta.env.VITE_LANG}.json`
+  `../../../dist/i18n.${data.LANG}.json`
+  // `../../../dist/i18n.${import.meta.env.VITE_LANG}.json`
 ] as Translations;
 
 function createI18NFunctions(translations: Translations) {
