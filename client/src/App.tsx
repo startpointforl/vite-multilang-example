@@ -17,7 +17,7 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Vite + React</h1>
+      <h1>Vite + React hello!</h1>
       <LazyComponent />
       <p className="read-the-docs">
         {i18n({ keyset: "block", key: "fetch-error" })}

@@ -8,10 +8,10 @@ app
   .disable("x-powered-by")
   .enable("trust proxy")
   .use(render)
-  .get("/api", (req, res) => {
+  .get("/api", (_req, res) => {
     res.send("Hello World!");
   })
-  .get("*", (req, res) => {
+  .get("/", (_req, res) => {
     // @ts-ignore
     res.renderBundle();
   });
