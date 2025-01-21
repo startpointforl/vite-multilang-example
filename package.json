@@ -5,9 +5,9 @@
   "scripts": {
     "client:dev": "vite",
     "server:dev": "NODE_ENV=dev node index.js",
-    "build:client": "tsc --project client && VITE_LANG=ru vite build",
+    "build:client": "tsc --project client && vite build --mode en && vite build --mode ru",
     "build:server": "tsc --project server",
-    "start:dev": "npm run build:server && npm-run-all --parallel client:dev server:dev",
+    "start:dev": "npm run i18n && npm run build:server && npm-run-all --parallel client:dev server:dev",
     "build:prod": "npm run i18n && npm run build:client && npm run build:server",
     "start:prod": "NODE_ENV=prod node index.js",
     "lint": "eslint .",
@@ -22,6 +22,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
+    "@rollup/plugin-replace": "^6.0.2",
     "@types/express": "^5.0.0",
     "@types/node": "^22.10.7",
     "@types/react": "^18.3.18",

@@ -1,18 +1,36 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import { resolve } from "path";
+import replace from "@rollup/plugin-replace";
+import path, { resolve } from "path";
+import { existsSync } from "fs";
+
+const loadLocales = (locale: string) => {
+  const filePath = path.resolve(__dirname, `./dist/i18n.${locale}.json`);
+  const content = existsSync(filePath)
+    ? JSON.stringify(require(filePath)).replace(/"/g, '\\"')
+    : "{}";
+  return content;
+};
 
 // https://vite.dev/config/
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   root: resolve(__dirname, "./client"),
   plugins: [react()],
   build: {
     outDir: resolve(__dirname, "./dist/client"),
     // generate .vite/manifest.json in outDir
-    manifest: true,
+    manifest: `.vite/manifest.${mode}.json`,
     rollupOptions: {
       // overwrite default .html entry
       input: "/src/main.tsx",
+      output: {
+        entryFileNames: `assets/[name]-${mode}-[hash].js`,
+        plugins: [
+          replace({
+            __buildI18nJson: loadLocales(mode),
+          }),
+        ],
+      },
     },
   },
   server: {
@@ -23,4 +41,4 @@ export default defineConfig({
       methods: ["GET", "HEAD"],
     },
   },
-});
+}));

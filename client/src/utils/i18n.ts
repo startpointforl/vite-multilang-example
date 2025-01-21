@@ -1,30 +1,4 @@
-interface Translations {
-  [keyset: string]: {
-    [key: string]: string;
-  };
-}
+import { i18nGynamic } from "./i18nGynamicImport";
+import { i18nStatic } from "./i18nStaticImport";
 
-// https://stackoverflow.com/questions/67822238/how-to-import-a-json-file-using-vite-dynamicly
-
-// const translations = require(`../../../dist/i18n.${process.env.BEM_LANG}.json`);
-const modules = import.meta.glob("../../../dist/i18n.*.json", {
-  eager: true,
-});
-
-const el = document.querySelector('meta[name="render-params"]');
-const data = JSON.parse(el?.getAttribute("content") || "{}");
-
-const translations = modules[
-  `../../../dist/i18n.${data.LANG}.json`
-  // `../../../dist/i18n.${import.meta.env.VITE_LANG}.json`
-] as Translations;
-
-function createI18NFunctions(translations: Translations) {
-  return ({ keyset, key }: { keyset: string; key: string }) => {
-    return translations[keyset][key];
-  };
-}
-
-const i18n = createI18NFunctions(translations);
-
-export default i18n;
+export const i18n = import.meta.env.DEV ? i18nGynamic : i18nStatic;
