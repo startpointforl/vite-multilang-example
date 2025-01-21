@@ -3,6 +3,7 @@ import viteLogo from "/vite.svg";
 import React from "react";
 import "./App.css";
 import i18n from "./utils/i18n";
+import { SimpleComponent } from "./components/SimpleComponent";
 
 const LazyComponent = React.lazy(() => import("./components/LazyComponent"));
 
@@ -19,6 +20,7 @@ function App() {
       </div>
       <h1>Vite + React hello!</h1>
       <LazyComponent />
+      <SimpleComponent />
       <p className="read-the-docs">
         {i18n({ keyset: "block", key: "fetch-error" })}
       </p>

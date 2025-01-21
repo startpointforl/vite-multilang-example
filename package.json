@@ -3,12 +3,13 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
+    "client:dev": "vite",
+    "server:dev": "NODE_ENV=dev node index.js",
     "build:client": "tsc --project client && VITE_LANG=ru vite build",
     "build:server": "tsc --project server",
+    "start:dev": "npm run build:server && npm-run-all --parallel client:dev server:dev",
     "build:prod": "npm run i18n && npm run build:client && npm run build:server",
-    "start:dev": "npm-run-all --parallel dev server",
-    "server": "node index.js",
+    "start:prod": "NODE_ENV=prod node index.js",
     "lint": "eslint .",
     "preview": "vite preview",
     "i18n": "node scripts/i18n.js"
