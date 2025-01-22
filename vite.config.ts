@@ -15,7 +15,7 @@ const loadLocales = (locale: string) => {
 /**
  * config for all lang import
  */
-// export default defineConfig(({ mode }) => ({
+// export default defineConfig({
 //   root: resolve(__dirname, "./client"),
 //   plugins: [react()],
 //   build: {
@@ -35,7 +35,7 @@ const loadLocales = (locale: string) => {
 //       methods: ["GET", "HEAD"],
 //     },
 //   },
-// }));
+// });
 
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => ({
