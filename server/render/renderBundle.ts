@@ -9,7 +9,10 @@ export default (lang: string = "en") => {
     manifestFilePath: path.resolve(
       __dirname,
       "../../",
-      // for all lang import "client/.vite/manifest.json"
+      /**
+       * for all lang import
+       * "client/.vite/manifest.json"
+       */
       `client/.vite/manifest.${lang}.json`
     ),
     entryPoint: "src/main.tsx",

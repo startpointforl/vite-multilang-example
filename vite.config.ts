@@ -27,6 +27,14 @@ const loadLocales = (locale: string) => {
 //       input: "/src/main.tsx",
 //     },
 //   },
+//   server: {
+//     origin: "http://vite.example.ru:5173",
+//     host: "vite.example.ru",
+//     cors: {
+//       origin: "http://vite.example.ru",
+//       methods: ["GET", "HEAD"],
+//     },
+//   },
 // }));
 
 // https://vite.dev/config/
