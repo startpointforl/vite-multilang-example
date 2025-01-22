@@ -9,6 +9,7 @@ export default (lang: string = "en") => {
     manifestFilePath: path.resolve(
       __dirname,
       "../../",
+      // for all lang import "client/.vite/manifest.json"
       `client/.vite/manifest.${lang}.json`
     ),
     entryPoint: "src/main.tsx",
@@ -25,7 +26,6 @@ export default (lang: string = "en") => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Vite + React + TS</title>
 
-        <!-- for gynamic import -->
         <meta name="render-params" content='{"LANG": "${lang}"}' />
 
         ${

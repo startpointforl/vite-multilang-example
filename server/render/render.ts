@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 
-import renderBundle from "./render-bundle";
+import renderBundle from "./renderBundle";
 
 export const render = (req: Request, res: Response, next: NextFunction) => {
   // @ts-ignore

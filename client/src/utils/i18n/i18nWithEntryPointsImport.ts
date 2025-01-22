@@ -14,8 +14,11 @@ try {
 
 function createI18NFunctions(translations: Translations) {
   return ({ keyset, key }: { keyset: string; key: string }) => {
-    return translations[keyset][key];
+    return (
+      translations[keyset]?.[key] ||
+      `Missing keyset "${keyset}" and key "${key}"`
+    );
   };
 }
 
-export const i18nStatic = createI18NFunctions(translations);
+export const i18nWithEntryPoints = createI18NFunctions(translations);

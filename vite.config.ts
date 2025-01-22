@@ -12,13 +12,29 @@ const loadLocales = (locale: string) => {
   return content;
 };
 
+/**
+ * config for all lang import
+ */
+// export default defineConfig(({ mode }) => ({
+//   root: resolve(__dirname, "./client"),
+//   plugins: [react()],
+//   build: {
+//     outDir: resolve(__dirname, "./dist/client"),
+//     // generate .vite/manifest.json in outDir
+//     manifest: true,
+//     rollupOptions: {
+//       // overwrite default .html entry
+//       input: "/src/main.tsx",
+//     },
+//   },
+// }));
+
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => ({
   root: resolve(__dirname, "./client"),
   plugins: [react()],
   build: {
     outDir: resolve(__dirname, "./dist/client"),
-    // generate .vite/manifest.json in outDir
     manifest: `.vite/manifest.${mode}.json`,
     rollupOptions: {
       // overwrite default .html entry
